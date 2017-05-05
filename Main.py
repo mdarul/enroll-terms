@@ -4,15 +4,9 @@ import argparse
 
 '''
 TO DO
-- dodać możliwość wyboru katalogu z plikami i terminu, obsługa błędów wyżej wymienionych (EDIT - już tylko obsługa błędów)
-- traktowanie terminu bez 'A' lub 'B' jako 'AB' (EDIT - zrobione, przetestować)
-- dodać możliwość wyboru dokładności (maksymalna liczba studentów którym może kolidować) (EDIT - done)
-
-(poniższe trzeba doczytać by zrobić)
 - własne wyjątki
 - dekoratory
 - loggery
-- wrzucić na gita
 - możliwość zainstalowania jako pakiet za pomocą pip'a
 '''
 
