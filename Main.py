@@ -40,7 +40,7 @@ def parser():
 
 # creates a dictionary which keys are all available terms for classes, and values are default (0)
 def init_dict():
-    days = ['poniedziałek ', 'wtorek ', 'środa ', 'czwartek ', 'piątek ']
+    days = ['poniedzia³ek ', 'wtorek ', 'œroda ', 'czwartek ', 'pi¹tek ']
     letters = ['A ', 'B ']
     hours = ['8:00 - 9:30', '9:35 - 11:05', '11:15 - 12:45', '12:50 - 14:20', '14:40 - 16:10', '16:15 - 17:45', '17:50 - 19:20', '19:30 - 21:00']
     terms = []
@@ -82,7 +82,8 @@ def get_files(path):
     return l
 
 
-# analises all files - everytime it finds a student that is given group (album_numbers list), it increments the dictionary's value (the key is the group in which he/she has been found)
+# analises all files - everytime it finds a student that is given group (album_numbers list), 
+# it increments the dictionary's value (the key is the group in which he/she has been found)
 def fill_terms(terms, album_numbers, path):
     file_list = get_files(path)
     for file in file_list:
@@ -123,7 +124,8 @@ def get_students(path, group, subject):
     group_ids = []
     with open(path + subject, newline='') as csv_file:
         file_content = csv.reader(csv_file, delimiter=";")
-        # if we find our group, we set flag True. Once we finish analising it (line is empty, all people from group were added), we break the operation
+        # if we find our group, we set flag True. Once we finish 
+        # analising it (line is empty, all people from group were added), we break the operation
         flag = False
         for line in file_content:
             if flag and not line:
@@ -149,24 +151,24 @@ for term in terms:
         print(term, terms[term])
 
 '''
-wtorek 16:15 A ->   poniedziałek 17:50 (1), 19:30 (0)
+wtorek 16:15 A ->   poniedzia³ek 17:50 (1), 19:30 (0)
                     wtorek 14:40 (3), 16:15 (1), 17:50 (3), 19:30 (0)
-                    środa 11:15 (3), 17:50 (0), 19:20 (0)
+                    œroda 11:15 (3), 17:50 (0), 19:20 (0)
                     czwartek 14:40 (0), 16:15 (2), 19:30 (0)
-                    piątek 8:00 (3), 9:35 (3), 12:50 (2), 14:40 (3), 16:15 (2)
-wtorek 17:50 A ->   poniedziałek 11:15 (2), 17:50 (3), 19:30 (0)
+                    pi¹tek 8:00 (3), 9:35 (3), 12:50 (2), 14:40 (3), 16:15 (2)
+wtorek 17:50 A ->   poniedzia³ek 11:15 (2), 17:50 (3), 19:30 (0)
                     wtorek 17:50 (0), 19:30 (0)
-                    środa 11:15 (1), 17:50 (2), 19:20 (0)
+                    œroda 11:15 (1), 17:50 (2), 19:20 (0)
                     czwartek 11:15 (3), 16:15 (2), 19:30 (0)
-                    piątek 8:00 (1), 9:35 (3), 12:50 (3), 14:40 (1), 16:15 (2)
-środa 8:00 A ->     poniedziałek 11:15 (3), 17:50 (2), 19:30 (0)
+                    pi¹tek 8:00 (1), 9:35 (3), 12:50 (3), 14:40 (1), 16:15 (2)
+œroda 8:00 A ->     poniedzia³ek 11:15 (3), 17:50 (2), 19:30 (0)
                     wtorek 14:40 (3), 17:50 (2), 19:30 (0)
-                    środa 8:00 (3), 11:15 (1), 17:50 (0), 19:30 (0)
+                    œroda 8:00 (3), 11:15 (1), 17:50 (0), 19:30 (0)
                     czwartek 11:15 (3), 12:50 (3), 14:40 (2), 16:15 (2), 19:30 (0)
-                    piątek 8:00 (3), 12:50 (3), 14:40 (1), 16:15 (1)
-środa 17:50 A ->    poniedziałek 19:30 (0)
+                    pi¹tek 8:00 (3), 12:50 (3), 14:40 (1), 16:15 (1)
+œroda 17:50 A ->    poniedzia³ek 19:30 (0)
                     wtorek 16:15 (2), 17:50 (1), 19:30 (0)
-                    środa 17:50 (0), 19:30 (0)
+                    œroda 17:50 (0), 19:30 (0)
                     czwartek 12:50 (2), 14:40 (3), 16:15 (1), 19:30 (0)
-                    piątek 8:00 (3), 14:40 (2)
+                    pi¹tek 8:00 (3), 14:40 (2)
 '''
